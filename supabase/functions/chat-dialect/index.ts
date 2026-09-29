@@ -54,14 +54,14 @@ serve(async (req) => {
       throw new Error("HF_API_KEY is not configured");
     }
 
-    const response = await fetch("https://router.huggingface.co/hf-inference/models/mistralai/Mistral-Large-Latest/v1/chat/completions", {
+    const response = await fetch("https://router.huggingface.co/v1/chat/completions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${HF_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "mistralai/Mistral-Large-Latest",
+        model: "Qwen/Qwen2.5-72B-Instruct",
         messages: [
           { role: "system", content: systemPrompt },
           ...messages,
